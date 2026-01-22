@@ -1,7 +1,7 @@
 import os
 import sys
-from src.excepetion import CustomExcepetion
-from src.logger import logging
+from excepetion import CustomExcepetion
+from logger import logging
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
@@ -25,7 +25,7 @@ class DataIngerstion:
             if not os.path.exists(dir_path):
                 os.makedirs(dir_path)
             # os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exists_ok=True)
-            df.to_csv(self.ingestion_config.train_data_path,index=False,header=True)
+            df.to_csv(self.ingestion_config.raw_data_path,index=False,header=True)
             logging.info("Train test split initiated") 
             
             train_set,test_set=train_test_split(df,test_size=0.2,random_state=42)
