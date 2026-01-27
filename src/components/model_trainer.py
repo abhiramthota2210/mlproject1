@@ -84,12 +84,20 @@ class ModelTrainer:
 
 
             #get the best model score from the dict
-            
-            model_report:dict=evaluate_models(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,
-                                              models=models,params=param)
+            model_report, best_model_name= evaluate_models(
+                X_train=X_train,
+                y_train=y_train,
+                X_test=X_test,
+                y_test=y_test,
+                models=models,
+                params=param
+            )
+
+            # model_report:dict=evaluate_models(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,
+                                            #   models=models,params=param)
             #get best model ame from dict
             
-            best_model_name = max(model_report, key=model_report.get)
+            # best_model_name = max(model_report, key=model_report.get)
             best_model_score = model_report[best_model_name]
 
            
